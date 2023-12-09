@@ -14,10 +14,18 @@ namespace Monopoly
 
         public List<BoardTile> OwnedProperties { get; } = new List<BoardTile>();
 
-        public Player(string name)
+        public int Position { get; set; } = 0;
+
+      /*  public Player()
+        {
+
+        } */
+
+        public Player(string name) //Start the game with 200 money and in first tile
         {
             Name = name;
             Balance = 200;
+            Position = 0;
         }
 
         public void ReceiveMoney(int amount)
@@ -33,6 +41,7 @@ namespace Monopoly
             CheckIfLost();
         }
 
+        //pay rent method, use CheckIfLost();
         public void BuyProperty(BoardTile property)
         {
             if (property.CanBuy && Balance >= property.Cost)
@@ -58,6 +67,7 @@ namespace Monopoly
         {
             if(Balance < 0)
             {
+                Console.WriteLine("Player " + this.Name + "lost.");
                 //lose
                 //return property to system
             }

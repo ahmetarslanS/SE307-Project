@@ -50,8 +50,8 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="BoardTile.cs" />
+    <Compile Include="MonopolyGame.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
