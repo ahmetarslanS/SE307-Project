@@ -10,7 +10,9 @@ namespace Monopoly
     {
         static void Main(string[] args)
         {
-            
+            Player p1 = new Player("kerem");
+            p1.ReceiveMoney(250);
+            p1.PayMoney(100);
         }
     }
 }

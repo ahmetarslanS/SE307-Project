@@ -44,7 +44,7 @@ namespace Monopoly
             CanBuy = canBuy;
         }
 
-        public void PerformAction(/*Player player, int diceRoll = 0*/)
+        public void PerformAction(Player player, int diceRoll = 0)
         {
             switch (Type)
             {
@@ -79,11 +79,21 @@ namespace Monopoly
                 case TileType.Utility:
                     //HandleUtility(player, diceRoll);
                     break;
+                case TileType.GoToJail: //methodları alt alta mı yazacagımızı bilmedigim icin örnek ekledim bir tane
+                    GoToJail(player);
+                    break;
 
                 default:
                     throw new InvalidOperationException($"Unexpected tile type: {Type}");
-                    break;
+                    
             }
+        }
+
+        private void GoToJail(Player player)
+        {
+            Console.WriteLine(player.Name + " goes to jail");
+            //set player position to jail tile
+            player.SkipTurns(2); 
         }
     }
 }
