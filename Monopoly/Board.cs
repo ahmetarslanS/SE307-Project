@@ -14,9 +14,13 @@ namespace Monopoly
 
         public int BoardBalance = 0;
 
+        public List<BoardTile> UnownedRealEstateTiles { get; }
+
         public Board()
         {
-            Tiles = new List<BoardTile>
+            UnownedRealEstateTiles = new List<BoardTile>();
+
+            Tiles = new List<BoardTile> 
             {
                 //  List<BoardTile> Tiles = new List<BoardTile>();
 
@@ -61,6 +65,14 @@ namespace Monopoly
                 new BoardTile(TileType.LuxuryTax, 38, "Luxury Tax"),
                 new BoardTile(TileType.RealEstate, 39, "Tier 8 Land", 400, 50, 200)
             };
+
+            foreach(BoardTile tile in Tiles)
+            {
+                if(tile.Type == TileType.RealEstate)
+                {
+                    UnownedRealEstateTiles.Add(tile);
+                }
+            }
 
 
             /*  new BoardTile(TileType.Start, 0, "Start");

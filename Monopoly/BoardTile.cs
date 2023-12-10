@@ -35,6 +35,8 @@ namespace Monopoly
        // public bool CanBuy { get; }
         public bool isOwned { get; set; }
 
+        public Player Owner { get; private set; }
+
         public int position;
 
         //  public BoardTile(TileType type, int position, int cost = 0, string description = "", List<string> chanceCards = null,
@@ -63,7 +65,7 @@ namespace Monopoly
                     break;
 
                 case TileType.RealEstate:
-                    RealEstateOperations();
+                    RealEstateOperations(player);
                     break;
 
                 case TileType.IncomeTax:
@@ -105,7 +107,7 @@ namespace Monopoly
             }
         }
 
-        private void RealEstateOperations()
+        private void RealEstateOperations(Player player)
         {
             //check if owned first
             //if not ask if want to buy
@@ -113,8 +115,75 @@ namespace Monopoly
             //if not take rent
             //if owned by same player ask if you want to build house
 
-        }
+            if (!isOwned)
+            {
+                //want to buy?
+                int choice = 0;
 
+                while (choice != 1 && choice != 2)
+                {
+                    Console.WriteLine($"This land is currently ownerless. Do you want to buy this land for {Cost}Ꝟ ?");
+                    Console.WriteLine("1. Buy");
+                    Console.WriteLine("2. Skip");
+
+                    string input = Console.ReadLine();
+
+                    if (int.TryParse(input, out choice))
+                    {
+                        switch (choice)
+                        {
+                            case 1:
+                                Console.WriteLine("You chose to buy the land.");
+                                //check player money
+                                if(player.Balance >= this.Cost)
+                                {
+                                    player.PayMoney(this.Cost);
+                                    player.OwnedProperties.Add(this);
+                                    Owner = player;
+                                    Console.WriteLine($"{player.Name} bought {Description}.");
+                                    isOwned = true;
+                                    //unowned tilestan çıkarmam lazım bunu
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Not enough money.");
+                                }
+                                break;
+
+                            case 2:
+                                Console.WriteLine("You chose to skip buying the land.");
+                                break;
+
+                            default:
+                                Console.WriteLine("Invalid choice. Please enter 1 or 2.");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid number.");
+                    }
+                }
+            }
+            else
+            {
+                if (Owner != player)
+                {
+                    Console.WriteLine("somebody else owns this land");
+                    //get rent
+                }
+                else //owner is this player
+                {
+                    //ask if he wants to build house
+                    Console.WriteLine("build house??");
+                }
+                //check who owns
+                //if players', ask if he wants to build house,
+                //if someone elses' than get rent
+                
+            }
+
+        }
         private void GoToJail(Player player)
         {
             Console.WriteLine(player.Name + " goes to jail");

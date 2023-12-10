@@ -91,7 +91,7 @@ namespace Monopoly
             Console.WriteLine($"Landed on {currentTile.Description}");
             currentTile.PerformAction(player);
             //you are in x tile
-            Console.WriteLine("What is your action?"); //delete this and call tile's method
+            Console.WriteLine("Press any key to continue"); //delete this and call tile's method
             string input2 = Console.ReadLine();
         }
 
@@ -131,6 +131,19 @@ namespace Monopoly
         private static void DisplayPropertiesAndBalances()
         {
             Console.WriteLine("Displaying properties and balances of all players...");
+            foreach(Player p in players)
+            {
+                Console.WriteLine($"Player {p.Name} has {p.Balance} money");
+                foreach (BoardTile property in p.OwnedProperties)
+                {
+                    Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}");
+                    if(p.OwnedProperties.Count == 0)
+                    {
+                        Console.WriteLine("no");
+                    }
+                }
+            }
+            Console.WriteLine();
         }
 
     }
