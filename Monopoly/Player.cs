@@ -44,7 +44,8 @@ namespace Monopoly
         //pay rent method, use CheckIfLost();
         public void BuyProperty(BoardTile property)
         {
-            if (property.CanBuy && Balance >= property.Cost)
+          //  if (property.CanBuy && Balance >= property.Cost)
+            if (!property.isOwned && Balance >= property.Cost)
             {
                 Balance -= property.Cost;
                 OwnedProperties.Add(property);

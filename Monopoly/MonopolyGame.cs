@@ -86,6 +86,10 @@ namespace Monopoly
             }
 
             //move player by dice roll
+            MovePlayer(player, diceRoll);
+            BoardTile currentTile = board.Tiles[player.Position];
+            Console.WriteLine($"Landed on {currentTile.Description}");
+            currentTile.PerformAction(player);
             //you are in x tile
             Console.WriteLine("What is your action?"); //delete this and call tile's method
             string input2 = Console.ReadLine();
@@ -117,10 +121,11 @@ namespace Monopoly
             return random.Next(1, 7) + random.Next(1, 7);
         }
 
-        private static void MovePlayer(Player player, int steps)
+        private static void MovePlayer(Player player, int diceAmount)
         {
-         //   player.Position = (player.Position + steps);
-         //   Console.WriteLine($"{player.Name} moved to position {player.Position}");
+            player.Position = (player.Position + diceAmount) % board.TotalTiles;
+            Console.WriteLine($"{player.Name} moved to {player.Position}. tile");
+
         }
 
         private static void DisplayPropertiesAndBalances()
