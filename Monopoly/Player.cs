@@ -31,32 +31,46 @@ namespace Monopoly
         public void ReceiveMoney(int amount)
         {
             Balance += amount;
-            Console.WriteLine(this.Name + " received "+ amount + "Ꝟ. New balance: " + Balance + "Ꝟ");
+            Console.WriteLine(this.Name + " received "+ amount + ". "+ this.Name+"'s new balance: " + Balance + "");
         }
 
-        public void PayMoney(int amount)
+        public void PayMoney(int amount, Player receiver = null)
         {
             Balance -= amount;
-            Console.WriteLine(this.Name + " paid " + amount + "Ꝟ. New balance: " + Balance + "Ꝟ");
+           /* Console.WriteLine(this.Name + " paid " + amount + ". "+this.Name + "'s new balance: " + Balance + "");
+            CheckIfLost(); */
+
+            if (receiver != null)
+            {
+                receiver.ReceiveMoney(amount);
+                Console.WriteLine($"{Name} paid {amount} to {receiver.Name}. {Name}'s new balance: {Balance}");
+            }
+            else
+            {
+                // Money is paid to the board
+                Board.BoardBalance += amount;
+                Console.WriteLine($"{Name} paid {amount} to the board. {Name}'s new balance: {Balance}");
+            }
+
             CheckIfLost();
         }
 
         //pay rent method, use CheckIfLost();
-        public void BuyProperty(BoardTile property)
+       /* public void BuyProperty(BoardTile property)
         {
           //  if (property.CanBuy && Balance >= property.Cost)
             if (!property.isOwned && Balance >= property.Cost)
             {
                 Balance -= property.Cost;
                 OwnedProperties.Add(property);
-               Console.WriteLine(this.Name + " bought " + property.Description + " for " + property.Cost + "Ꝟ. New balance: " + Balance + "Ꝟ");
+               Console.WriteLine(this.Name + " bought " + property.Description + " for " + property.Cost + this.Name+"'s new balance: " + Balance + "");
 
             }
             else
             {
                 Console.WriteLine(this.Name + " cannot buy " + property.Description + ".");
             }
-        }
+        }*/
 
         public void SkipTurns(int skipAmount)
         {

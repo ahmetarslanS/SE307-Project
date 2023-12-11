@@ -8,19 +8,19 @@ namespace Monopoly
 {
     public class MonopolyGame
     {
-        
+
         private static List<Player> players = new List<Player>();
         private static Board board = new Board();
         public static void Main(string[] args)
         {
             StartGame();
 
-            while(players.Count > 1) //there are at least 2 players still playing
+            while (players.Count > 1) //there are at least 2 players still playing
             {
                 foreach (Player player in players) //players get their turn in order
                 {
                     PlayerTurn(player);
-                   
+
                 }
             }
 
@@ -36,15 +36,15 @@ namespace Monopoly
             for (int i = 0; i < playerCount; i++)
             {
                 // players.Add(new Player($"Player {i + 1}"));
-                Console.WriteLine($"Enter {i+1}. player name:");
+                Console.WriteLine($"Enter {i + 1}. player name:");
                 string name = Console.ReadLine();
                 Player p = new Player(name);
                 players.Add(p);
-                
+
             }
             for (int i = 0; i < players.Count; i++)
             {
-                Console.WriteLine((i+1) + ". Player: " + players[i].Name);
+                Console.WriteLine((i + 1) + ". Player: " + players[i].Name);
             }
         }
 
@@ -71,6 +71,9 @@ namespace Monopoly
                         case 2:
                             diceRoll = RollDice();
                             Console.WriteLine($"{player.Name} rolled {diceRoll}");
+                            break;
+                        case 3://for testing
+                            SetPlayerPosition(player);
                             break;
 
                         default:
@@ -131,13 +134,14 @@ namespace Monopoly
         private static void DisplayPropertiesAndBalances()
         {
             Console.WriteLine("Displaying properties and balances of all players...");
-            foreach(Player p in players)
+            foreach (Player p in players)
             {
                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
                 foreach (BoardTile property in p.OwnedProperties)
                 {
-                    Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}");
-                    if(p.OwnedProperties.Count == 0)
+                    //      Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}"); hata veriyor suan
+                    Console.WriteLine($"Player {p.Name} has {property.Description} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()}, Houses built: {property.HouseCount}"); //?
+                    if (p.OwnedProperties.Count == 0)
                     {
                         Console.WriteLine("no");
                     }
@@ -145,6 +149,23 @@ namespace Monopoly
             }
             Console.WriteLine();
         }
+        private static void SetPlayerPosition(Player pl) //For testing
+        {
+           // foreach (Player player in players)
+            {
+                Console.Write($"Enter the new position for {pl.Name}: ");
+                if (int.TryParse(Console.ReadLine(), out int newPosition))
+                {
+                    pl.Position = newPosition % board.TotalTiles;
+                    Console.WriteLine($"{pl.Name}'s position set to {pl.Position}. tile");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter a valid position.");
+                }
+            }
+        }
 
     }
 }
+
