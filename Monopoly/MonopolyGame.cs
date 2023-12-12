@@ -66,7 +66,8 @@ namespace Monopoly
                     {
                         case 1:
                             DisplayPropertiesAndBalances();
-                            goto case 2;
+                            //   goto case 2;
+                            continue;
 
                         case 2:
                             diceRoll = RollDice();
@@ -91,7 +92,7 @@ namespace Monopoly
             //move player by dice roll
             MovePlayer(player, diceRoll);
             BoardTile currentTile = board.Tiles[player.Position];
-            Console.WriteLine($"Landed on {currentTile.Description}");
+            Console.WriteLine($"Landed on {currentTile.Name}");
             currentTile.PerformAction(player);
             //you are in x tile
             Console.WriteLine("Press any key to continue"); //delete this and call tile's method
@@ -134,16 +135,32 @@ namespace Monopoly
         private static void DisplayPropertiesAndBalances()
         {
             Console.WriteLine("Displaying properties and balances of all players...");
+            /* foreach (Player p in players)
+             {
+                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
+                 foreach (Property property in p.OwnedProperties)
+                 {
+                     //      Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}"); hata veriyor suan
+                     Console.WriteLine($"Player {p.Name} has {property.Name} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()}, Houses built: {property..HouseCount}");
+                 }
+
+             } */
             foreach (Player p in players)
             {
                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
-                foreach (BoardTile property in p.OwnedProperties)
+                foreach (Property property in p.OwnedProperties)
                 {
-                    //      Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}"); hata veriyor suan
-                    Console.WriteLine($"Player {p.Name} has {property.Description} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()}, Houses built: {property.HouseCount}"); //?
-                    if (p.OwnedProperties.Count == 0)
+                    Console.Write($"Player {p.Name} has {property.Name} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()} ");
+
+                 
+                    if (property is RealEstateTile realEstate)
                     {
-                        Console.WriteLine("no");
+                        Console.WriteLine($"Houses built: {realEstate.HouseCount}");
+                    }
+                   
+                    else if (property is TrainStationTile trainStation)
+                    {
+                        Console.WriteLine($"Stations owned: {p.StationsBought}");
                     }
                 }
             }
