@@ -82,7 +82,7 @@ namespace Monopoly
 
         }
 
-        public void PurchaseProperty(Player player)
+        public override void PurchaseProperty(Player player)
         {
             int choice = 0;
 

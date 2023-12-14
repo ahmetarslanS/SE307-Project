@@ -29,8 +29,9 @@ namespace Monopoly
 
         public override void PerformAction(Player player)
         {
-            throw new NotImplementedException();
         }
+
+        public abstract void PurchaseProperty(Player player);
 
         public abstract int CalculateRent();
     }

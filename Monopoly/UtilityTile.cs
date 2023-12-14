@@ -6,28 +6,13 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    class TrainStationTile : Property
+    internal class UtilityTile : Property
     {
-      //  int StationCount;
-        public TrainStationTile(TileType tileType, string name, int position, int cost) : base(tileType, name, position, cost)
+        public UtilityTile(TileType tileType, string name, int position, int cost) : base(tileType, name, position, cost)
         {
-     //       StationCount = 0;
-           // Rent = CalculateRent();
         }
-
-
-        //  public Player Owner { get; private set; }
-
-        //    public bool IsOwned { get; set; }
-
         public override void PerformAction(Player player)
         {
-            //check if owned first
-            //if not ask if want to buy
-            //if yes, check if owned by this player
-            //if not take rent
-            //if owned by same player ask if you want to build house
-
             if (!IsOwned)
             {
                 //want to buy?
@@ -37,20 +22,16 @@ namespace Monopoly
             {
                 if (Owner != player)
                 {
-                 //   Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
-                  //  Console.WriteLine($"Somebody else owns this station. Current rent : {Owner.StationsBought*50}");
-                    Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
-                   // player.PayMoney(CalculateRent(), Owner);
-                   // player.PayMoney(50*Owner.StationsBought, Owner);
+
+                    Console.WriteLine($"Somebody else owns this utility. Current rent : {CalculateRent()}");
                     player.PayMoney(CalculateRent(), Owner);
                 }
                 else //owner is this player
                 {
-                    Console.WriteLine("You already own this station.");
+                    Console.WriteLine("You already own this utility.");
                 }
 
             }
-
         }
 
         public override void PurchaseProperty(Player player)
@@ -59,7 +40,7 @@ namespace Monopoly
 
             while (choice != 1 && choice != 2)
             {
-                Console.WriteLine($"This station is currently ownerless. Do you want to buy this station for {Cost} ?");
+                Console.WriteLine($"This {Name} is currently ownerless. Do you want to buy this {Name} for {Cost} ?");
                 Console.WriteLine("1. Buy");
                 Console.WriteLine("2. Skip");
 
@@ -70,7 +51,7 @@ namespace Monopoly
                     switch (choice)
                     {
                         case 1:
-                            Console.WriteLine("You chose to buy this station.");
+                            Console.WriteLine($"You chose to buy this {Name}.");
                             //check player money
                             if (player.Balance >= this.Cost)
                             {
@@ -78,9 +59,8 @@ namespace Monopoly
                                 player.OwnedProperties.Add(this);
                                 Owner = player;
                                 Console.WriteLine($"{player.Name} bought {Name}.");
-                                // StationCount++;
-                                player.StationsBought++;
-                                Console.WriteLine("Stations have: " + player.StationsBought);
+                                player.UtilityBought++;
+                                Console.WriteLine("Utilities have: " + player.UtilityBought);
                                 IsOwned = true;
                                 //unowned tilestan çıkarmam lazım bunu
                             }
@@ -91,7 +71,7 @@ namespace Monopoly
                             break;
 
                         case 2:
-                            Console.WriteLine("You chose to skip buying this station.");
+                            Console.WriteLine($"You chose to skip buying this {Name}.");
                             break;
 
                         default:
@@ -105,12 +85,21 @@ namespace Monopoly
                 }
             }
         }
+
         public override int CalculateRent()
         {
-            //return 50*StationCount;//ama aynı oyuncunun sahip olması lazım bunu düzelt
-            //return 50 * player.StationsBought;
-            return 50 * Owner.StationsBought;
-        }
+            Random random = new Random();
+            int dice = random.Next(1, 7) + random.Next(1, 7);
+         //   Console.WriteLine($"Rolled {dice}.");
+            if (Owner.UtilityBought == 1)
+            {
+                return dice * 50;
+            }
+            else
+            {
+                return dice * 100;
+            }
 
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace Monopoly
         public int Position { get; set; } = 0;
 
         public int StationsBought { get; set; }
+        public int UtilityBought { get; set; }
 
       /*  public Player()
         {
@@ -29,6 +30,7 @@ namespace Monopoly
             Balance = 200;
             Position = 0;
             StationsBought = 0;
+            UtilityBought = 0;
         }
 
         public void ReceiveMoney(int amount)
@@ -56,7 +58,7 @@ namespace Monopoly
                 Console.WriteLine($"{Name} paid {amount}. {Name}'s new balance: {Balance}");
             }
 
-            CheckIfLost();
+            CheckIfLost(); //kaybedince de para ödüyor şuan
         }
 
 
