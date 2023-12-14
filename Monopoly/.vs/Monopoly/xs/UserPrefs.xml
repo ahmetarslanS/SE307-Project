@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{17987973-63CC-41F8-A9C9-FB8B06ED49B5}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ChanceCardsTile.cs">
+    <Files>
+      <File FileName="ChanceCardsTile.cs" Line="33" Column="21" />
+      <File FileName="Player.cs" />
+      <File FileName="MonopolyGame.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Monopoly">
+            <Node name="Monopoly">
+              <Node name="ChanceCardsTile.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Monopoly PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
