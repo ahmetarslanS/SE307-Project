@@ -90,7 +90,51 @@ namespace Monopoly
             //cant play for skipAmount time
         }
 
-      
+        public void MovePlayer(int amount)
+        {
+            int previousPosition = Position;
+          //  Position = (Position + amount) % board.TotalTiles;
+            Position = (Position + amount) % 40;
+            if (previousPosition > Position)
+            {
+                Console.WriteLine($"{Name} passed through Start Tile.");
+                ReceiveMoney(200);
+            }
+
+            Console.WriteLine($"{Name} moved to {Position}. tile");
+
+        }
+
+        public int FindClosestStation(List<BoardTile> tiles) //daha tamamlamadım
+        {
+            int closestStation = tiles[0].Position;
+            int minDistance = CalculateDistance(Position, closestStation);
+
+            foreach (BoardTile tile in tiles)
+            {
+                if (tile is TrainStationTile stationTile)
+                {
+                    int distance = CalculateDistance(Position, stationTile.Position);
+
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        closestStation = stationTile.Position;
+                    }
+                }
+            }
+            Console.WriteLine("closest station: " + closestStation);
+            return closestStation;
+        }
+        private int CalculateDistance(int currentPosition, int targetPosition)
+        {
+            // Calculate the shortest distance considering the board as a circular path
+            int distanceClockwise = (targetPosition - currentPosition + 40) % 40;
+            int distanceCounterClockwise = (currentPosition - targetPosition + 40) % 40;
+
+            return Math.Min(distanceClockwise, distanceCounterClockwise);
+        }
+
         void CheckIfLost()
         {
             if(Balance < 0)

@@ -9,7 +9,7 @@ namespace Monopoly
     public class MonopolyGame
     {
 
-        private static List<Player> players = new List<Player>();
+        public static List<Player> players = new List<Player>();
         private static Board board = new Board();
         public static void Main(string[] args)
         {
@@ -90,7 +90,7 @@ namespace Monopoly
             }
 
             //move player by dice roll
-            MovePlayer(player, diceRoll);
+            player.MovePlayer(diceRoll);
             BoardTile currentTile = board.Tiles[player.Position];
             Console.WriteLine($"Landed on {currentTile.Name}");
             currentTile.PerformAction(player);
@@ -125,12 +125,7 @@ namespace Monopoly
             return random.Next(1, 7) + random.Next(1, 7);
         }
 
-        private static void MovePlayer(Player player, int diceAmount)
-        {
-            player.Position = (player.Position + diceAmount) % board.TotalTiles;
-            Console.WriteLine($"{player.Name} moved to {player.Position}. tile");
 
-        }
 
         private static void DisplayPropertiesAndBalances()
         {
