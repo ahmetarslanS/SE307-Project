@@ -8,50 +8,18 @@ namespace Monopoly
 {
     internal class ChanceCardsTile : BoardTile
     {
-        private List<int> chanceCardPool;
-
         public ChanceCardsTile(TileType tileType, string name, int position) : base(tileType, name, position)
         {
-            InitializeChanceCardPool();
+            InitializeCardPool();
         }
 
-        private void InitializeChanceCardPool()
+        protected override void InitializeCardPool()
         {
             // Create list of chance card numbers
-            chanceCardPool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+            CardPool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             // Shuffle the cards at the beginning
-            ShuffleChanceCardPool();
-        }
-
-        private void ShuffleChanceCardPool()
-        {
-            Random random = new Random();
-            int n = chanceCardPool.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = chanceCardPool[k];
-                chanceCardPool[k] = chanceCardPool[n];
-                chanceCardPool[n] = value;
-            }
-        }
-
-        private int DrawChanceCard()
-        {
-            // Check if the card pool is depleted and shuffle if needed
-            if (chanceCardPool.Count == 0)
-            {
-                Console.WriteLine("Chance Card pool is depleted. Reshuffling...");
-                InitializeChanceCardPool();
-            }
-
-            // Draw a card and remove it from the pool
-            int drawnCard = chanceCardPool[0];
-            chanceCardPool.RemoveAt(0);
-
-            return drawnCard;
+            ShuffleCardPool();
         }
 
 
@@ -60,7 +28,7 @@ namespace Monopoly
             Console.WriteLine($"Drawing a Chance Card for {player.Name}...");
 
             // Simulate drawing a random Chance Card
-            int cardNumber = GetRandomCardNumber();
+            int cardNumber = DrawCard();
 
             // Implement the actions according to drawn card
             switch (cardNumber)
@@ -121,13 +89,6 @@ namespace Monopoly
                     Console.WriteLine("No specific action for this Chance Card.");
                     break;
             }
-        }
-
-        private int GetRandomCardNumber()
-        {
-            // Simulate drawing a random card from 1 to 8
-            Random random = new Random();
-            return random.Next(1, 9);
         }
     }
 }

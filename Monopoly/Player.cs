@@ -19,10 +19,16 @@ namespace Monopoly
         public int StationsBought { get; set; }
         public int UtilityBought { get; set; }
 
-      /*  public Player()
+        public void SetPosition(int newPosition)
         {
+            Position = newPosition;
+            Console.WriteLine($"{Name} moved to position {Position}.");
+        }
 
-        } */
+        /*  public Player()
+          {
+
+          } */
 
         public Player(string name) //Start the game with 200 money and in first tile
         {
