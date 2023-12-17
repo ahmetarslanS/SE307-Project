@@ -27,7 +27,6 @@ namespace Monopoly
 
         public override void PerformAction(Player player)
         {
-            player.FindClosestStation(Board.Tiles);
             Console.WriteLine($"Drawing a Chance Card for {player.Name}...");
 
             // Simulate drawing a random Chance Card
@@ -48,20 +47,17 @@ namespace Monopoly
 
                 case 3:
                     Console.WriteLine("Place 150Ꝟ on the board.");
-                    player.PayMoney(50, board: Board);
+                    player.PayMoney(150, board: Board);
                     break;
 
                 case 4:
-                    Console.WriteLine("Place on the board 25 for each owned house, and 100 for each owned hotel.");
+                    Console.WriteLine("Place on the board 25 for each owned house, and 100 for each owned hotel."); //tek ev için çalıştı ama detaylı test etmedim
                     int houseCount = 0;
                     foreach(RealEstateTile realEstate in player.OwnedProperties)
                     {
                         // int houseCount = realEstate.HouseCount;
                         houseCount += realEstate.HouseCount;
-                        player.PayMoney(houseCount*25,board: Board);
-                        //print a message if player doesnt have anything
-                      
-                       
+                        player.PayMoney(houseCount*25,board: Board);                                                              
                     }
 
                     if (houseCount == 0)
@@ -72,19 +68,32 @@ namespace Monopoly
 
                 case 5:
                     Console.WriteLine("Travel to the nearest train station. Collect 200Ꝟ if you pass through the beginning tile.");
+                    int trainStationPos = player.FindClosestTile(typeof (TrainStationTile),Board.Tiles);
+                    int distanceToMove = trainStationPos - player.Position;
+                    player.MovePlayer(distanceToMove);
+                    BoardTile currentTile = Board.Tiles[player.Position];
+                    Console.WriteLine($"Landed on {currentTile.Name}");
+                    currentTile.PerformAction(player);
+
                     // Implement logic to move to the nearest train station
                     // Check if the player passes the beginning tile and collect 200Ꝟ
                     break;
 
-                case 6: // ÇALIŞMIYOR
+                case 6: 
                     Console.WriteLine("Go back 3 tiles.");
+                    int newPos = player.Position - 3;
+                    int distance = newPos - player.Position;
                     // alttaki method private olduğu için inaccesible, public veya internal yapabiliriz belki
-                    player.MovePlayer(-3); 
+                    player.MovePlayer(distance);
+                    currentTile = Board.Tiles[player.Position];
+                    Console.WriteLine($"Landed on {currentTile.Name}");
+                    currentTile.PerformAction(player);
                     break;
 
                 case 7:
                     Console.WriteLine("Get out of jail immediately, if in jail.");
-                    // Implement logic to release the player from jail
+                    player.hasJailCard = true;
+                    //player will get out of jail if they encounter jail
                     break;
 
                 case 8:

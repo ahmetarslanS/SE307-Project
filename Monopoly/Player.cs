@@ -19,6 +19,7 @@ namespace Monopoly
         public int StationsBought { get; set; }
         public int UtilityBought { get; set; }
 
+        public bool hasJailCard { get; set; }
         public void SetPosition(int newPosition)
         {
             Position = newPosition;
@@ -37,6 +38,7 @@ namespace Monopoly
             Position = 0;
             StationsBought = 0;
             UtilityBought = 0;
+            hasJailCard = false;
         }
 
         public void ReceiveMoney(int amount)
@@ -95,7 +97,17 @@ namespace Monopoly
             int previousPosition = Position;
           //  Position = (Position + amount) % board.TotalTiles;
             Position = (Position + amount) % 40;
-            if (previousPosition > Position)
+        /*    if (previousPosition > Position) //geri yürürse de 200 veriyor start tiledan geçmese bile
+            {
+                Console.WriteLine($"{Name} passed through Start Tile.");
+                ReceiveMoney(200);
+            } */
+
+            if (previousPosition > Position && Position != 0)
+            {
+                Console.WriteLine($"{Name} moved backward but did not pass through Start Tile.");
+            }
+            else if (previousPosition > Position && Position == 0)
             {
                 Console.WriteLine($"{Name} passed through Start Tile.");
                 ReceiveMoney(200);
@@ -105,26 +117,26 @@ namespace Monopoly
 
         }
 
-        public int FindClosestStation(List<BoardTile> tiles) //daha tamamlamadım
+        public int FindClosestTile(Type tileType,List<BoardTile> tiles) //daha tamamlamadım
         {
-            int closestStation = tiles[0].Position;
-            int minDistance = CalculateDistance(Position, closestStation);
+            int closestTileToFind = tiles[0].Position;
+            int minDistance = CalculateDistance(Position, closestTileToFind);
 
             foreach (BoardTile tile in tiles)
             {
-                if (tile is TrainStationTile stationTile)
+                if (tile.GetType() == tileType)
                 {
-                    int distance = CalculateDistance(Position, stationTile.Position);
+                    int distance = CalculateDistance(Position, tile.Position);
 
                     if (distance < minDistance)
                     {
                         minDistance = distance;
-                        closestStation = stationTile.Position;
+                        closestTileToFind = tile.Position;
                     }
                 }
             }
-            Console.WriteLine("closest station: " + closestStation);
-            return closestStation;
+            Console.WriteLine("Closest station: " + closestTileToFind);
+            return closestTileToFind;
         }
         private int CalculateDistance(int currentPosition, int targetPosition)
         {
