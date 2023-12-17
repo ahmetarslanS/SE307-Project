@@ -135,7 +135,7 @@ namespace Monopoly
                     }
                 }
             }
-            Console.WriteLine("Closest station: " + closestTileToFind);
+          
             return closestTileToFind;
         }
         private int CalculateDistance(int currentPosition, int targetPosition)

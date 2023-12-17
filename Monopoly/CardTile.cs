@@ -1,40 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    public enum TileType
+    internal abstract class CardTile : BoardTile
     {
-        Start,
-        IncomeTax,
-        LuxuryTax,
-        ChanceCards,
-        CommunityChest,
-        FreeParking,
-        TrainStation,
-        Utility,
-        RealEstate,
-        GoToJail,
-        Jail
-    }
-
-    public abstract class BoardTile
-    {
-        public TileType Type { get; }
-        public string Name { get; }
-        public int Position { get; }
-
-        protected List<int> CardPool { get; set; }
-
-        protected BoardTile(TileType tileType, string name, int position)
+        protected Board Board;
+        public CardTile(TileType tileType, string name, int position, Board board) : base(tileType, name, position)
         {
-            Type = tileType;
-            Name = name;
-            Position = position;
+            Board = board;
+            InitializeCardPool();
         }
+        protected abstract void InitializeCardPool();
+    /*    public override void PerformAction(Player player)
+        {
+            Console.WriteLine($"Drawing a Card for {player.Name}...");
 
-        //// Subclasses can override this method to provide their own implementation.
-/*        protected virtual void InitializeCardPool() { }
+            // Simulate drawing a random Card
+            int cardNumber = DrawCard();
+
+            // Implement the actions according to drawn card
+            ExecuteCardAction(cardNumber, player);
+        } */
+
+        //         protected virtual void InitializeCardPool() { }
+    //    protected abstract void ExecuteCardAction(int cardNumber, Player player);
 
         protected void ShuffleCardPool()
         {
@@ -64,8 +57,7 @@ namespace Monopoly
             CardPool.RemoveAt(0);
 
             return drawnCard;
-        } */
+        } 
 
-        public abstract void PerformAction(Player player);
     }
 }

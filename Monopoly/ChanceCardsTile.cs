@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Monopoly
 {
-    internal class ChanceCardsTile : BoardTile
+    internal class ChanceCardsTile : CardTile
     {
-        Board Board;
-        public ChanceCardsTile(TileType tileType, string name, int position,Board board) : base(tileType, name, position)
+      //  Board Board;
+        public ChanceCardsTile(TileType tileType, string name, int position,Board board) : base(tileType, name, position,board)
         {
             InitializeCardPool();
-            Board = board;
+      //      Board = board;
         }
 
         protected override void InitializeCardPool()
@@ -70,6 +70,7 @@ namespace Monopoly
                     Console.WriteLine("Travel to the nearest train station. Collect 200Ꝟ if you pass through the beginning tile.");
                     int trainStationPos = player.FindClosestTile(typeof (TrainStationTile),Board.Tiles);
                     int distanceToMove = trainStationPos - player.Position;
+                    Console.WriteLine($"Closest station is in {trainStationPos}. tile");
                     player.MovePlayer(distanceToMove);
                     BoardTile currentTile = Board.Tiles[player.Position];
                     Console.WriteLine($"Landed on {currentTile.Name}");
@@ -115,5 +116,10 @@ namespace Monopoly
                     break;
             }
         }
+
+    /*    protected override void ExecuteCardAction(int cardNumber, Player player)
+        {
+            throw new NotImplementedException();
+        } */
     }
 }

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="BoardTile.cs" />
+    <Compile Include="CardTile.cs" />
     <Compile Include="ChanceCardsTile.cs" />
     <Compile Include="CommunityChestTile.cs" />
     <Compile Include="FreeParkingTile.cs" />
