@@ -63,7 +63,7 @@ namespace Monopoly
                 new RealEstateTile(TileType.RealEstate, "Tier 6 Land", 27, 280, 150, new int[]{24,120,360,850,1025,1200}),
                 new UtilityTile(TileType.Utility, "Water Works", 28, 150),
                 new RealEstateTile(TileType.RealEstate, "Tier 6 Land", 29, 280, 150, new int[]{24,120,360,850,1025,1200}),
-                new GoToJailTile(TileType.GoToJail, "Go To Jail", 30),
+                new GoToJailTile(TileType.GoToJail, "Go To Jail", 30,this),
                 new RealEstateTile(TileType.RealEstate, "Tier 7 Land", 31, 320, 200, new int[]{28,150,450,1000,1200,1400}),
                 new RealEstateTile(TileType.RealEstate, "Tier 7 Land", 32, 320, 200, new int[]{28,150,450,1000,1200,1400}),
                 new CommunityChestTile(TileType.CommunityChest, "Community Chest", 33, this),

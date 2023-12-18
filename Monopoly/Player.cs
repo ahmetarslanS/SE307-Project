@@ -20,16 +20,8 @@ namespace Monopoly
         public int UtilityBought { get; set; }
 
         public bool hasJailCard { get; set; }
-        public void SetPosition(int newPosition)
-        {
-            Position = newPosition;
-            Console.WriteLine($"{Name} moved to position {Position}.");
-        }
-
-        /*  public Player()
-          {
-
-          } */
+        public bool InJail;
+        public int turnSkipCount;
 
         public Player(string name) //Start the game with 200 money and in first tile
         {
@@ -39,6 +31,8 @@ namespace Monopoly
             StationsBought = 0;
             UtilityBought = 0;
             hasJailCard = false;
+            InJail = false;
+            turnSkipCount = 0;
         }
 
         public void ReceiveMoney(int amount)
