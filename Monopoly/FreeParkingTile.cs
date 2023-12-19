@@ -8,13 +8,17 @@ namespace Monopoly
 {
     internal class FreeParkingTile : BoardTile
     {
-        public FreeParkingTile(TileType tileType, string name, int position) : base(tileType, name, position)
+        Board Board;
+        public FreeParkingTile(TileType tileType, string name, int position,Board board) : base(tileType, name, position)
         {
+            Board = board;
         }
 
         public override void PerformAction(Player player)
         {
-            player.ReceiveMoney(Board.BoardBalance);
+            Console.WriteLine($"Player {player.Name} collects the money placed on the board. Board balance: {Board.BoardBalance}");
+            player.ReceiveMoney(Board.BoardBalance,Board);
+         //   Console.WriteLine($"Board's new balance: {Board.BoardBalance}");
         }
     }
 }

@@ -8,11 +8,11 @@ namespace Monopoly
 {
     internal class CommunityChestTile : CardTile
     {
-      
-        public CommunityChestTile(TileType tileType, string name, int position,Board board) : base(tileType, name, position, board)
+
+        public CommunityChestTile(TileType tileType, string name, int position, Board board) : base(tileType, name, position, board)
         {
             InitializeCardPool();
-          
+
         }
 
         protected override void InitializeCardPool()
@@ -68,7 +68,7 @@ namespace Monopoly
 
                 case 5:
                     Console.WriteLine("Travel to the nearest utility. Collect 200Ꝟ if you pass through the beginning tile.");
-                    int utilityPos = player.FindClosestTile(typeof(UtilityTile), Board.Tiles);              
+                    int utilityPos = player.FindClosestTile(typeof(UtilityTile), Board.Tiles);
                     int distanceToMove = utilityPos - player.Position;
                     Console.WriteLine($"Closest utility is in {utilityPos}. tile");
                     player.MovePlayer(distanceToMove);
@@ -79,18 +79,19 @@ namespace Monopoly
 
                 case 6:
                     Console.WriteLine("Advance to the beginning tile.");
-               //     player.SetPosition(0);
-                    player.Position = 0;
-                    Console.WriteLine($"{player.Name}'s new position is {player.Position}");
-                    player.ReceiveMoney(200);//bu böyle değil de method içinde olabilir
+                    //     player.SetPosition(0);
+           //         player.Position = 0;
+           //         Console.WriteLine($"{player.Name}'s new position is {player.Position}");
+           //         player.ReceiveMoney(200);//bu böyle değil de method içinde olabilir
+                    player.MovePlayer(Board.Tiles[0].Position-player.Position);
                     break;
 
                 case 7:
                     Console.WriteLine("Travel to jail immediately.");
                     int jailPos = 0;
                     // Implement logic to put the player in jail.
-               //     player.Position = 10;
-                    foreach(BoardTile tile in Board.Tiles)
+                    //     player.Position = 10;
+                    foreach (BoardTile tile in Board.Tiles)
                     {
                         if (tile.Type == TileType.Jail)
                         {
@@ -98,14 +99,14 @@ namespace Monopoly
                         }
                     }
 
-                    player.Position= jailPos; //player won't get 200 
+                    player.Position = jailPos; //player won't get 200 
                     Console.WriteLine($"{player.Name}'s new position is {player.Position}");
                     break;
 
                 case 8:
                     Console.WriteLine("Collect 100Ꝟ from each player.");
                     // burda da yine players private olduğu için inaccesible
-                  
+
 
                     foreach (Player otherPlayer in MonopolyGame.players)
                     {
@@ -123,9 +124,9 @@ namespace Monopoly
             }
         }
 
-    /*    protected override void ExecuteCardAction(int cardNumber, Player player)
-        {
-            throw new NotImplementedException();
-        } */
+        /*    protected override void ExecuteCardAction(int cardNumber, Player player)
+            {
+                throw new NotImplementedException();
+            } */
     }
 }

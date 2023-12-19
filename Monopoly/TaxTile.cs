@@ -28,11 +28,8 @@ namespace Monopoly
                 case TileType.LuxuryTax:
                     taxAmount = 150;
                     break;
-
-                // Add more cases for other tax types if needed
-
                 default:
-                    // Handle other cases if necessary
+         
                     break;
             }
 

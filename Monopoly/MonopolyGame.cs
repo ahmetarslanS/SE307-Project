@@ -94,8 +94,8 @@ namespace Monopoly
                 Console.WriteLine($"Landed on {currentTile.Name}");
                 currentTile.PerformAction(player);
                 //you are in x tile
-                Console.WriteLine("Press any key to continue"); //delete this and call tile's method
-                string input2 = Console.ReadLine();
+        //        Console.WriteLine("Press any key to continue"); //delete this and call tile's method
+        //        string input2 = Console.ReadLine();
             }
             else
             {

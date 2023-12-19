@@ -53,7 +53,7 @@ namespace Monopoly
                 new CommunityChestTile(TileType.CommunityChest, "Community Chest", 17, this),
                 new RealEstateTile(TileType.RealEstate, "Tier 4 Land", 18, 200, 100, new int[]{16,80,220,600,800,1000}),
                 new RealEstateTile(TileType.RealEstate, "Tier 4 Land", 19, 200, 100, new int[]{16,80,220,600,800,1000}),
-                new FreeParkingTile(TileType.FreeParking, "Free Parking", 20),
+                new FreeParkingTile(TileType.FreeParking, "Free Parking", 20,this),
                 new RealEstateTile(TileType.RealEstate, "Tier 5 Land", 21, 240, 150, new int[]{20,100,300,750,925,1100}),
                 new ChanceCardsTile(TileType.ChanceCards, "Chance Cards", 22,this),
                 new RealEstateTile(TileType.RealEstate, "Tier 5 Land", 23, 240, 150, new int[]{20,100,300,750,925,1100}),

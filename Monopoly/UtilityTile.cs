@@ -23,7 +23,8 @@ namespace Monopoly
                 if (Owner != player)
                 {
 
-                    Console.WriteLine($"Somebody else owns this utility. Current rent : {CalculateRent()}");
+                  //  Console.WriteLine($"Somebody else owns this utility. Current rent : {CalculateRent()}");
+                    Console.WriteLine($"Player {Owner.Name} has this {Name}. Utilities owned: {Owner.UtilityBought}.");
                     player.PayMoney(CalculateRent(), Owner);
                 }
                 else //owner is this player
@@ -88,9 +89,11 @@ namespace Monopoly
 
         public override int CalculateRent()
         {
+            int rentPrint = Owner.UtilityBought * 50;
             Random random = new Random();
             int dice = random.Next(1, 7) + random.Next(1, 7);
-         //   Console.WriteLine($"Rolled {dice}.");
+            Console.WriteLine($"Rolled {dice}.");
+            Console.WriteLine("Current rent: " + dice + "x" + rentPrint +"=" + dice*rentPrint);
             if (Owner.UtilityBought == 1)
             {
                 return dice * 50;

@@ -39,7 +39,8 @@ namespace Monopoly
                 {
                  //   Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
                   //  Console.WriteLine($"Somebody else owns this station. Current rent : {Owner.StationsBought*50}");
-                    Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
+                    //Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
+                    Console.WriteLine($"Player {Owner.Name} has this station. Stations owned: {Owner.StationsBought}. Current rent: {CalculateRent()}");
                    // player.PayMoney(CalculateRent(), Owner);
                    // player.PayMoney(50*Owner.StationsBought, Owner);
                     player.PayMoney(CalculateRent(), Owner);

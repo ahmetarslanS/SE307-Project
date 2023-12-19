@@ -35,9 +35,13 @@ namespace Monopoly
             turnSkipCount = 0;
         }
 
-        public void ReceiveMoney(int amount)
+        public void ReceiveMoney(int amount, Board board = null)
         {
             Balance += amount;
+            if(board!= null)
+            {
+                Board.BoardBalance -= amount;
+            }
             Console.WriteLine(this.Name + " received "+ amount + ". "+ this.Name+"'s new balance: " + Balance + "");
         }
 
@@ -91,21 +95,39 @@ namespace Monopoly
             int previousPosition = Position;
           //  Position = (Position + amount) % board.TotalTiles;
             Position = (Position + amount) % 40;
-        /*    if (previousPosition > Position) //geri yürürse de 200 veriyor start tiledan geçmese bile
+            /*    if (previousPosition > Position) //geri yürürse de 200 veriyor start tiledan geçmese bile
+                {
+                    Console.WriteLine($"{Name} passed through Start Tile.");
+                    ReceiveMoney(200);
+                } */
+
+            /*  if (previousPosition > Position && Position != 0)
+              {
+                  Console.WriteLine($"{Name} moved backward but did not pass through Start Tile.");
+              }
+              else if (previousPosition > Position && Position == 0)
+              {
+                  Console.WriteLine($"{Name} passed through Start Tile.");
+                  ReceiveMoney(200);
+              }*/
+
+            if ((previousPosition < 20 && Position >= 20 && Position < previousPosition) ||
+         (previousPosition > 30 && Position < 10 && Position < previousPosition))
             {
                 Console.WriteLine($"{Name} passed through Start Tile.");
                 ReceiveMoney(200);
-            } */
-
-            if (previousPosition > Position && Position != 0)
+            }
+            else if (Position == 0)
+            {
+                //   Console.WriteLine($"{Name} passed through Start Tile.");
+                ReceiveMoney(200);
+            }
+            else if (previousPosition > Position)
             {
                 Console.WriteLine($"{Name} moved backward but did not pass through Start Tile.");
             }
-            else if (previousPosition > Position && Position == 0)
-            {
-                Console.WriteLine($"{Name} passed through Start Tile.");
-                ReceiveMoney(200);
-            }
+         
+
 
             Console.WriteLine($"{Name} moved to {Position}. tile");
 
