@@ -8,11 +8,11 @@ namespace Monopoly
 {
     internal class ChanceCardsTile : CardTile
     {
-      //  Board Board;
+  
         public ChanceCardsTile(TileType tileType, string name, int position,Board board) : base(tileType, name, position,board)
         {
             InitializeCardPool();
-      //      Board = board;
+     
         }
 
         protected override void InitializeCardPool()
@@ -52,14 +52,14 @@ namespace Monopoly
 
                 case 3:
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Place 150Ꝟ on the board.");
+                    Console.WriteLine("Place 150 on the board.");
                     Console.ResetColor();
                     player.PayMoney(150, board: Board);
                     break;
 
                 case 4:
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Place on the board 25 for each owned house, and 100 for each owned hotel."); //tek ev için çalıştı ama detaylı test etmedim
+                    Console.WriteLine("Place on the board 25 for each owned house, and 100 for each owned hotel."); 
                     Console.ResetColor();
                     int houseCount = 0;
                     foreach(RealEstateTile realEstate in player.OwnedProperties)
@@ -89,8 +89,7 @@ namespace Monopoly
                     Console.ResetColor();
                     currentTile.PerformAction(player);
 
-                    // Implement logic to move to the nearest train station
-                    // Check if the player passes the beginning tile and collect 200Ꝟ
+                   
                     break;
 
                 case 6:
@@ -115,7 +114,7 @@ namespace Monopoly
 
                 case 8:
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("Pay each player 50Ꝟ.");
+                    Console.WriteLine("Pay each player 50.");
                     Console.ResetColor();
                     
                     foreach (Player otherPlayer in MonopolyGame.players)
@@ -136,9 +135,5 @@ namespace Monopoly
             }
         }
 
-    /*    protected override void ExecuteCardAction(int cardNumber, Player player)
-        {
-            throw new NotImplementedException();
-        } */
     }
 }

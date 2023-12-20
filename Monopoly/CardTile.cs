@@ -15,20 +15,7 @@ namespace Monopoly
             InitializeCardPool();
         }
         protected abstract void InitializeCardPool();
-        /*    public override void PerformAction(Player player)
-            {
-                Console.WriteLine($"Drawing a Card for {player.Name}...");
-
-                // Simulate drawing a random Card
-                int cardNumber = DrawCard();
-
-                // Implement the actions according to drawn card
-                ExecuteCardAction(cardNumber, player);
-            } */
-
-        //         protected virtual void InitializeCardPool() { }
-        //    protected abstract void ExecuteCardAction(int cardNumber, Player player);
-
+      
         protected void ShuffleCardPool()
         {
             Console.ResetColor();

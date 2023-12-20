@@ -26,3 +26,14 @@ C:/Users/Gwyn/source/repos/SE307-Project/Monopoly/obj/Debug/Monopoly.pdb
 /Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Newtonsoft.Json.dll
 /Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Newtonsoft.Json.xml
 /Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Debug/Monopoly.csproj.CopyComplete
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\bin\Debug\Monopoly.exe.config
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\bin\Debug\Monopoly.exe
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\bin\Debug\Monopoly.pdb
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.csproj.AssemblyReference.cache
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.csproj.CoreCompileInputs.cache
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.csproj.CopyComplete
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.exe
+C:\Users\Gwyn\source\repos\SE307-Project\Monopoly\obj\Debug\Monopoly.pdb

@@ -10,7 +10,7 @@ namespace Monopoly
     public class Player
     {
         public string Name { get; }
-        public int Balance { get; set; }
+        public int Balance { get; private set; }
 
         public List<Property> OwnedProperties { get; } = new List<Property>();
 
@@ -87,63 +87,21 @@ namespace Monopoly
                     Console.WriteLine($"{Name} paid {Balance} to the board. {Name}'s new balance: 0. Board's new balance: {Board.BoardBalance}");
                     Balance -= Balance;
                 }
-              /*  else
-                {
-                    Console.WriteLine($"{Name} paid {Balance}. {Name}'s new balance: 0");
-                    Balance -= Balance;
-                } */
+        
 
                 Console.WriteLine($"Player {Name} is eliminated.");
-                //   MonopolyGame.players.Remove(this);
+         
                 IsEliminated = true;
             }
 
-          //  CheckIfLost(); //kaybedince de para ödüyor şuan
-        }
-
-
-        //pay rent method, use CheckIfLost();
-        /* public void BuyProperty(BoardTile property)
-         {
-           //  if (property.CanBuy && Balance >= property.Cost)
-             if (!property.isOwned && Balance >= property.Cost)
-             {
-                 Balance -= property.Cost;
-                 OwnedProperties.Add(property);
-                Console.WriteLine(this.Name + " bought " + property.Description + " for " + property.Cost + this.Name+"'s new balance: " + Balance + "");
-
-             }
-             else
-             {
-                 Console.WriteLine(this.Name + " cannot buy " + property.Description + ".");
-             }
-         }*/
-
-        public void SkipTurns(int skipAmount)
-        {
-            //cant play for skipAmount time
+      
         }
 
         public void MovePlayer(int amount)
         {
             int previousPosition = Position;
-          //  Position = (Position + amount) % board.TotalTiles;
             Position = (Position + amount) % 40;
-            /*    if (previousPosition > Position) //geri yürürse de 200 veriyor start tiledan geçmese bile
-                {
-                    Console.WriteLine($"{Name} passed through Start Tile.");
-                    ReceiveMoney(200);
-                } */
-
-            /*  if (previousPosition > Position && Position != 0)
-              {
-                  Console.WriteLine($"{Name} moved backward but did not pass through Start Tile.");
-              }
-              else if (previousPosition > Position && Position == 0)
-              {
-                  Console.WriteLine($"{Name} passed through Start Tile.");
-                  ReceiveMoney(200);
-              }*/
+          
 
             if ((previousPosition < 20 && Position >= 20 && Position < previousPosition) ||
          (previousPosition > 30 && Position < 10 && Position < previousPosition))
@@ -155,21 +113,19 @@ namespace Monopoly
             }
             else if (Position == 0)
             {
-                //   Console.WriteLine($"{Name} passed through Start Tile.");
                 ReceiveMoney(200);
+
             }
             else if (previousPosition > Position)
             {
                 Console.WriteLine($"{Name} moved backward but did not pass through Start Tile.");
             }
          
-
-
             Console.WriteLine($"{Name} moved to {Position}. tile");
 
         }
 
-        public int FindClosestTile(Type tileType,List<BoardTile> tiles) //daha tamamlamadım
+        public int FindClosestTile(Type tileType,List<BoardTile> tiles) 
         {
             int closestTileToFind = tiles[0].Position;
             int minDistance = CalculateDistance(Position, closestTileToFind);
@@ -199,17 +155,7 @@ namespace Monopoly
             return Math.Min(distanceClockwise, distanceCounterClockwise);
         }
 
-        void CheckIfLost()
-        {
-            if(Balance < 0)
-            {
-                Console.ForegroundColor = ConsoleColor.DarkRed;
-                Console.WriteLine("Player " + this.Name + "lost.");
-                Console.ResetColor();
-                //lose
-                //return property to system
-            }
-        }
+ 
 
        
     }

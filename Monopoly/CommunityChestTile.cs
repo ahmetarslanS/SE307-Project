@@ -94,10 +94,6 @@ namespace Monopoly
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Advance to the beginning tile.");
                     Console.ResetColor();
-                    //     player.SetPosition(0);
-           //         player.Position = 0;
-           //         Console.WriteLine($"{player.Name}'s new position is {player.Position}");
-           //         player.ReceiveMoney(200);//bu böyle değil de method içinde olabilir
                     player.MovePlayer(Board.Tiles[0].Position-player.Position);
                     break;
 
@@ -105,8 +101,7 @@ namespace Monopoly
                     Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Travel to jail immediately.");
                     int jailPos = 0;
-                    // Implement logic to put the player in jail.
-                    //     player.Position = 10;
+
                     foreach (BoardTile tile in Board.Tiles)
                     {
                         if (tile.Type == TileType.Jail)
@@ -144,9 +139,5 @@ namespace Monopoly
             }
         }
 
-        /*    protected override void ExecuteCardAction(int cardNumber, Player player)
-            {
-                throw new NotImplementedException();
-            } */
     }
 }

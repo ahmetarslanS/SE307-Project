@@ -8,17 +8,12 @@ namespace Monopoly
 {
     class TrainStationTile : Property
     {
-      //  int StationCount;
         public TrainStationTile(TileType tileType, string name, int position, int cost) : base(tileType, name, position, cost)
         {
-     //       StationCount = 0;
-           // Rent = CalculateRent();
+  
         }
 
 
-        //  public Player Owner { get; private set; }
-
-        //    public bool IsOwned { get; set; }
 
         public override void PerformAction(Player player)
         {
@@ -37,13 +32,8 @@ namespace Monopoly
             {
                 if (Owner != player)
                 {
-                    //   Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
-                    //  Console.WriteLine($"Somebody else owns this station. Current rent : {Owner.StationsBought*50}");
-                    //Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine($"Player {Owner.Name} has this station. Stations owned: {Owner.StationsBought}. Current rent: {CalculateRent()}");
-                   // player.PayMoney(CalculateRent(), Owner);
-                   // player.PayMoney(50*Owner.StationsBought, Owner);
                     player.PayMoney(CalculateRent(), Owner);
                     Console.ResetColor();
                 }
@@ -83,11 +73,9 @@ namespace Monopoly
                                 player.OwnedProperties.Add(this);
                                 Owner = player;
                                 Console.WriteLine($"{player.Name} bought {Name}.");
-                                // StationCount++;
                                 player.StationsBought++;
                                 Console.WriteLine("Stations have: " + player.StationsBought);
-                              //  IsOwned = true;
-                                //unowned tilestan çıkarmam lazım bunu
+
                             }
                             else
                             {
@@ -121,8 +109,6 @@ namespace Monopoly
         }
         public override int CalculateRent()
         {
-            //return 50*StationCount;//ama aynı oyuncunun sahip olması lazım bunu düzelt
-            //return 50 * player.StationsBought;
             return 50 * Owner.StationsBought;
         }
 

@@ -9,6 +9,8 @@ namespace Monopoly
 
         public static List<Player> players = new List<Player>();
         private static Board board = new Board();
+
+        private static Random random = new Random();
         public static void Main(string[] args)
         {
             
@@ -111,7 +113,8 @@ namespace Monopoly
 
             foreach (Player player in players)
             {
-                int roll = RollDice();
+           //     int roll = RollDice();
+                int roll = random.Next(1, 7);
 
                 Console.WriteLine($"{player.Name} rolled {roll}");
 
@@ -140,12 +143,13 @@ namespace Monopoly
                 Console.WriteLine(" ");
                 Console.ForegroundColor = player.GetColor();
                 Console.WriteLine($"{player.Name}'s turn:");
+               
                 Console.ResetColor();
                 
                 while (true)
                 {
                     Console.ForegroundColor = player.GetColor();
-                    Console.WriteLine(" ");
+                    Console.WriteLine(" ");                  
                     Console.WriteLine("1. Display properties and balances of all players"); //(Functional requirement 7) 
                     Console.WriteLine("2. Roll the dice");
                     Console.Write("Enter your choice (1 or 2): ");
@@ -163,12 +167,13 @@ namespace Monopoly
 
                             case 2:
                                 diceRoll = RollDice();
+                                Console.WriteLine("");
                                 Console.WriteLine($"{player.Name} rolled {diceRoll}");
                                 break;
 
-                            case 3://for testing
+                         /*   case 3://for testing
                                 SetPlayerPosition(player);
-                                break;
+                                break; */
 
                             default:
                                 Console.ForegroundColor = ConsoleColor.Red;
@@ -190,10 +195,11 @@ namespace Monopoly
                 player.MovePlayer(diceRoll);
                 BoardTile currentTile = board.Tiles[player.Position];
                 Console.WriteLine($"Landed on {currentTile.Name}");
+                Console.WriteLine("");
                 currentTile.PerformAction(player);
-                //you are in x tile
-        //        Console.WriteLine("Press any key to continue"); //delete this and call tile's method
-        //        string input2 = Console.ReadLine();
+                Console.WriteLine($"End of {player.Name}'s turn.");
+                Console.WriteLine("");
+
             }
             else
             {
@@ -227,7 +233,7 @@ namespace Monopoly
 
         private static int RollDice()
         {
-            Random random = new Random();
+       //     Random random = new Random();
             return random.Next(1, 7) + random.Next(1, 7);
         }
 
@@ -238,17 +244,7 @@ namespace Monopoly
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Displaying properties and balances of all players...");
             Console.ResetColor();
-            /* foreach (Player p in players)
-             {
-                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
-                 foreach (Property property in p.OwnedProperties)
-                 {
-                     //      Console.WriteLine($"Player {p.Name} has {property.Description}=> Cost: {property.Cost}, Rent: {property.RentAmount}"); hata veriyor suan
-                     Console.WriteLine($"Player {p.Name} has {property.Name} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()}, Houses built: {property..HouseCount}");
-                 }
-
-             } */
-            
+       
             foreach (Player p in players)
             {
                 Console.ForegroundColor = p.GetColor();
@@ -279,9 +275,9 @@ namespace Monopoly
             }
             Console.WriteLine();
         }
-        private static void SetPlayerPosition(Player pl) //For testing
+   /*     private static void SetPlayerPosition(Player pl) //For testing
         {
-            // foreach (Player player in players)
+          
             {
                 Console.Write($"Enter the new position for {pl.Name}: ");
                 if (int.TryParse(Console.ReadLine(), out int newPosition))
@@ -296,7 +292,7 @@ namespace Monopoly
                     Console.ResetColor();
                 }
             }
-        }
+        } */
 
     }
 }

@@ -14,7 +14,7 @@ namespace Monopoly
 
         public override void PerformAction(Player player)
         {
-           // throw new NotImplementedException();
+           
         }
     }
 }

@@ -23,7 +23,6 @@ namespace Monopoly
                 if (Owner != player)
                 {
                     Console.ForegroundColor = ConsoleColor.DarkYellow;
-                  //  Console.WriteLine($"Somebody else owns this utility. Current rent : {CalculateRent()}");
                     Console.WriteLine($"Player {Owner.Name} has this {Name}. Utilities owned: {Owner.UtilityBought}.");
                     player.PayMoney(CalculateRent(), Owner);
                     Console.ResetColor();
@@ -64,8 +63,6 @@ namespace Monopoly
                                 Console.WriteLine($"{player.Name} bought {Name}.");
                                 player.UtilityBought++;
                                 Console.WriteLine("Utilities have: " + player.UtilityBought);
-                      //          IsOwned = true;
-                                //unowned tilestan çıkarmam lazım bunu
                             }
                             else
                             {

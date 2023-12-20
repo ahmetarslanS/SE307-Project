@@ -8,45 +8,21 @@ namespace Monopoly
 {
     class RealEstateTile : Property
     {
-    //    public int Cost { get; }
-       // public int Rent { get; }
+
         public int[] RentLevels { get; set; }
-
-    //    public Player Owner { get; private set; }
-
-    //    public bool IsOwned { get; set; }
         public int HouseCount;
         public int BuildCost;
+        public bool HotelBuilt;
 
         public RealEstateTile(TileType tileType, string name, int position, int cost,int buildCcost, int[] rentLevels) : base(tileType, name, position, cost)
         {
             RentLevels = rentLevels;
             HouseCount = 0;
             BuildCost = buildCcost;
+            HotelBuilt = false;
         }
 
-        /*     public RealEstateTile(TileType tileType, string name, int position,int cost,int buildCost, int[] rentLevels) : base(tileType, name, position)
-             {
-                 tileType = TileType.RealEstate;
-              //   Cost = cost;
-                 RentLevels = rentLevels;
-                 IsOwned = false;
-             //    Owner = null;
-                 BuildCost = buildCost;
-             } */
-
-
-
-        /*  public RealEstateTile(int position, string name, int cost, int buildCost, int[] rentLevels)
-           : base(TileType.RealEstate, name, position)
-          {
-              Cost = cost;
-          //    Rent = rent;
-              RentLevels = rentLevels;
-              isOwned = false;
-              Owner = null;
-              BuildCost = buildCost;
-          }*/
+      
 
         public override void PerformAction(Player player)
         {
@@ -111,8 +87,7 @@ namespace Monopoly
                                 player.OwnedProperties.Add(this);
                                 Owner = player;
                                 Console.WriteLine($"{player.Name} bought {Name}.");
-                                //IsOwned = true;
-                                //unowned tilestan çıkarmam lazım bunu
+                          
                             }
                             else
                             {
@@ -147,7 +122,7 @@ namespace Monopoly
 
         public void BuildHouse(Player player)
         {
-            if (HouseCount < 5)
+            if (!HotelBuilt)
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"You own this land. Do you want to build a house for {BuildCost}? You currently have {HouseCount} houses on this land.");
@@ -169,8 +144,19 @@ namespace Monopoly
                                 Console.WriteLine("You chose to build a house.");
                                 player.PayMoney(BuildCost);
                                 HouseCount++;
+                                if (HouseCount == 5)
+                                {
+                                    Console.WriteLine("You built a hotel!");
+                                    HotelBuilt = true;
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"{player.Name} has {HouseCount} houses in this land.");
+                                }
+                              
                                 Console.WriteLine($"The rent of this land is {CalculateRent()} now.");
                                 Console.ResetColor();
+                                
                                 //get house building cost
 
 

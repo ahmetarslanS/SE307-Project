@@ -11,16 +11,14 @@ namespace Monopoly
         
         public int Cost { get; }
         public Player Owner { get;  set; }
-      //  public bool IsOwned { get; set; }
-       // public int Rent { get; }
+ 
 
         public Property(TileType tileType, string name, int position, int cost)
          : base(tileType, name, position)
         {
             Cost = cost;
             Owner = null;
-       //     IsOwned = false;
-        //    Rent = CalculateRent();//??
+       
         }
 
         public Property(TileType tileType, string name, int position) : base(tileType, name, position)
