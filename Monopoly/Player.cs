@@ -148,8 +148,10 @@ namespace Monopoly
             if ((previousPosition < 20 && Position >= 20 && Position < previousPosition) ||
          (previousPosition > 30 && Position < 10 && Position < previousPosition))
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"{Name} passed through Start Tile.");
                 ReceiveMoney(200);
+                Console.ResetColor();
             }
             else if (Position == 0)
             {
@@ -201,7 +203,9 @@ namespace Monopoly
         {
             if(Balance < 0)
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Player " + this.Name + "lost.");
+                Console.ResetColor();
                 //lose
                 //return property to system
             }

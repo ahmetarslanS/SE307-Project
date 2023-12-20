@@ -31,6 +31,9 @@ namespace Monopoly
 
         protected void ShuffleCardPool()
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine("Shuffling card pool...");
+            Console.ResetColor();
             Random random = new Random();
             int n = CardPool.Count;
             while (n > 1)
@@ -48,7 +51,9 @@ namespace Monopoly
             // Check if the card pool is depleted and shuffle if needed
             if (CardPool.Count == 0)
             {
+                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine($"{Type} Card pool is depleted. Reshuffling...");
+                Console.ResetColor();
                 InitializeCardPool();
             }
 

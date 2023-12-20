@@ -112,22 +112,30 @@ namespace Monopoly
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                 Console.WriteLine("Not enough money.");
+                                Console.ResetColor();
                             }
                             break;
 
                         case 2:
+                            Console.ForegroundColor = ConsoleColor.Gray;
                             Console.WriteLine("You chose to skip buying the land.");
+                            Console.ResetColor();
                             break;
 
                         default:
+                            Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("Invalid choice. Please enter 1 or 2.");
+                            Console.ResetColor();
                             break;
                     }
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a valid number.");
+                    Console.ResetColor();
                 }
             }
         }
@@ -161,11 +169,15 @@ namespace Monopoly
                                 break;
 
                             case 2:
+                                Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine("You chose to skip buying a house.");
+                                Console.ResetColor();
                                 break;
 
                             default:
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Invalid choice. Please enter 1 or 2.");
+                                Console.ResetColor();
                                 break;
                         }
 
@@ -176,7 +188,9 @@ namespace Monopoly
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid input. Please enter a valid number.");
+                        Console.ResetColor();
                     }
 
                 }

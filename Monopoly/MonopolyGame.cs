@@ -60,7 +60,9 @@ namespace Monopoly
 
             if (players.Count == 1)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"Player {players[0].Name} won the game!");
+                Console.ResetColor();
             }
 
             Console.WriteLine("Press any key to exit...");
@@ -104,7 +106,9 @@ namespace Monopoly
 
         public static void DecideWhoStarts()
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Rolling the dice to decide who starts...");
+            
 
             int maxRoll = 0;
             Player startingPlayer = null;
@@ -126,6 +130,7 @@ namespace Monopoly
             // Set the starting player to be the first in the list
             players.Remove(startingPlayer);
             players.Insert(0, startingPlayer);
+            Console.ResetColor();
         }
 
         private static void PlayerTurn(Player player)
@@ -162,14 +167,18 @@ namespace Monopoly
                                 break;
 
                             default:
+                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("Invalid input. Please enter 1 or 2.");
+                                Console.ResetColor();
                                 continue;
                         }
                         break;
                     }
                     else
                     {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid input. Please enter a valid option.");
+                        Console.ResetColor();
                     }
                 }
 
@@ -205,7 +214,9 @@ namespace Monopoly
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a number between 2 and 4.");
+                    Console.ResetColor();
                 }
             }
         }
@@ -220,7 +231,9 @@ namespace Monopoly
 
         private static void DisplayPropertiesAndBalances()
         {
+            Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine("Displaying properties and balances of all players...");
+            Console.ResetColor();
             /* foreach (Player p in players)
              {
                  Console.WriteLine($"Player {p.Name} has {p.Balance} money");
@@ -231,8 +244,10 @@ namespace Monopoly
                  }
 
              } */
+            
             foreach (Player p in players)
             {
+                Console.ForegroundColor = p.GetColor();
                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
                 foreach (Property property in p.OwnedProperties)
                 {
@@ -256,6 +271,7 @@ namespace Monopoly
                     }
                    
                 }
+                Console.ResetColor();
             }
             Console.WriteLine();
         }
@@ -271,7 +287,9 @@ namespace Monopoly
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid input. Please enter a valid position.");
+                    Console.ResetColor();
                 }
             }
         }

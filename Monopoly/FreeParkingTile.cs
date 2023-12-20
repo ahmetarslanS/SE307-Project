@@ -16,8 +16,10 @@ namespace Monopoly
 
         public override void PerformAction(Player player)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine($"Player {player.Name} collects the money placed on the board. Board balance: {Board.BoardBalance}");
             player.ReceiveMoney(Board.BoardBalance,Board);
+            Console.ResetColor();
          //   Console.WriteLine($"Board's new balance: {Board.BoardBalance}");
         }
     }

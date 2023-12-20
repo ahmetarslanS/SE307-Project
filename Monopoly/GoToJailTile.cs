@@ -29,15 +29,19 @@ namespace Monopoly
                 }
 
                 player.Position = jailPos;
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine($"{player.Name}'s new position is {player.Position}");
                 Console.WriteLine($"{player.Name} is in jail and cannot play for two turns.");
+                Console.ResetColor();
                 player.InJail = true;
                 player.turnSkipCount = 2;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine($"{player.Name} has get out of jail free card and will no go to jail.");
                 player.hasJailCard = false;
+                Console.ResetColor();
             }
             
      
