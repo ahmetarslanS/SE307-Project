@@ -11,17 +11,11 @@ namespace Monopoly
         private static Board board = new Board();
         public static void Main(string[] args)
         {
-            StartGame();
+            
+                StartGame();
+            
 
-            /* while (players.Count > 1) //there are at least 2 players still playing
-             {
-                 foreach (Player player in players) //players get their turn in order
-                 {
-                     PlayerTurn(player);
-
-                 }
-             } */
-            while (players.Count > 1) // there are at least 2 players still playing
+            while (players.Count > 1)
             {
                 List<Player> playersToRemove = new List<Player>();
 
@@ -44,6 +38,7 @@ namespace Monopoly
                         player.OwnedProperties.Clear();
                         break;
                     }
+                    
                 }
 
              
@@ -86,12 +81,13 @@ namespace Monopoly
                 Player p = new Player(name, color);
                 players.Add(p);
             }
-
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Players in the game:");
             for (int i = 0; i < players.Count; i++)
             {
                 Console.WriteLine($"{i + 1}. Player: {players[i].Name}");
             }
+            Console.ResetColor();
 
             
             DecideWhoStarts();
@@ -139,14 +135,21 @@ namespace Monopoly
             {
                 int diceRoll = 0;
                 //View of the board (Functional requirement 6) 
-                Console.WriteLine($"{player.Name}'s turn:");
                 board.DisplayBoardView();
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.ForegroundColor = player.GetColor();
+                Console.WriteLine($"{player.Name}'s turn:");
+                Console.ResetColor();
+                
                 while (true)
                 {
+                    Console.ForegroundColor = player.GetColor();
                     Console.WriteLine(" ");
                     Console.WriteLine("1. Display properties and balances of all players"); //(Functional requirement 7) 
                     Console.WriteLine("2. Roll the dice");
                     Console.Write("Enter your choice (1 or 2): ");
+                    Console.ResetColor();
                     string input1 = Console.ReadLine();
 
                     if (int.TryParse(input1, out int choice))
@@ -162,6 +165,7 @@ namespace Monopoly
                                 diceRoll = RollDice();
                                 Console.WriteLine($"{player.Name} rolled {diceRoll}");
                                 break;
+
                             case 3://for testing
                                 SetPlayerPosition(player);
                                 break;

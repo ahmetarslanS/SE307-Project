@@ -23,3 +23,6 @@ C:/Users/Gwyn/source/repos/SE307-Project/Monopoly/obj/Debug/Monopoly.pdb
 /Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Monopoly.exe
 /Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Monopoly.pdb
 >>>>>>> Stashed changes
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Newtonsoft.Json.dll
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Debug/Newtonsoft.Json.xml
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Debug/Monopoly.csproj.CopyComplete

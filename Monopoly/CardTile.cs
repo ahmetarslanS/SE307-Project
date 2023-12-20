@@ -31,8 +31,6 @@ namespace Monopoly
 
         protected void ShuffleCardPool()
         {
-            Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Shuffling card pool...");
             Console.ResetColor();
             Random random = new Random();
             int n = CardPool.Count;

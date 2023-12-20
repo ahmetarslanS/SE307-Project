@@ -37,13 +37,15 @@ namespace Monopoly
             {
                 if (Owner != player)
                 {
-                 //   Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
-                  //  Console.WriteLine($"Somebody else owns this station. Current rent : {Owner.StationsBought*50}");
+                    //   Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
+                    //  Console.WriteLine($"Somebody else owns this station. Current rent : {Owner.StationsBought*50}");
                     //Console.WriteLine($"Somebody else owns this station. Current rent : {CalculateRent()}");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine($"Player {Owner.Name} has this station. Stations owned: {Owner.StationsBought}. Current rent: {CalculateRent()}");
                    // player.PayMoney(CalculateRent(), Owner);
                    // player.PayMoney(50*Owner.StationsBought, Owner);
                     player.PayMoney(CalculateRent(), Owner);
+                    Console.ResetColor();
                 }
                 else //owner is this player
                 {
@@ -60,9 +62,11 @@ namespace Monopoly
 
             while (choice != 1 && choice != 2)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"This station is currently ownerless. Do you want to buy this station for {Cost} ?");
                 Console.WriteLine("1. Buy");
                 Console.WriteLine("2. Skip");
+                
 
                 string input = Console.ReadLine();
 
@@ -112,6 +116,7 @@ namespace Monopoly
                     Console.WriteLine("Invalid input. Please enter a valid number.");
                     Console.ResetColor();
                 }
+                Console.ResetColor();
             }
         }
         public override int CalculateRent()

@@ -1,0 +1,887 @@
+{
+  "Players": [
+    {
+      "InJail": false,
+      "turnSkipCount": 0,
+      "IsEliminated": false,
+      "Color": 10,
+      "Name": "Kerem",
+      "Balance": 200,
+      "OwnedProperties": [],
+      "Position": 5,
+      "StationsBought": 0,
+      "UtilityBought": 0,
+      "hasJailCard": false
+    },
+    {
+      "InJail": false,
+      "turnSkipCount": 0,
+      "IsEliminated": false,
+      "Color": 11,
+      "Name": "Ahmet",
+      "Balance": 200,
+      "OwnedProperties": [],
+      "Position": 0,
+      "StationsBought": 0,
+      "UtilityBought": 0,
+      "hasJailCard": false
+    }
+  ],
+  "Board": {
+    "Tiles": [
+      {
+        "Type": 0,
+        "Name": "Start Tile",
+        "Position": 0
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          4,
+          20,
+          60,
+          180,
+          320,
+          450
+        ],
+        "Cost": 60,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 1 Land",
+        "Position": 1
+      },
+      {
+        "Type": 4,
+        "Name": "Community Chest",
+        "Position": 2
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          4,
+          20,
+          60,
+          180,
+          320,
+          450
+        ],
+        "Cost": 60,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 1 Land",
+        "Position": 3
+      },
+      {
+        "Type": 1,
+        "Name": "Income Tax",
+        "Position": 4
+      },
+      {
+        "Cost": 100,
+        "Owner": null,
+        "Type": 6,
+        "Name": "Train Station",
+        "Position": 5
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 6
+      },
+      {
+        "Type": 3,
+        "Name": "Chance Cards",
+        "Position": 7
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 8
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 9
+      },
+      {
+        "Type": 10,
+        "Name": "Jail",
+        "Position": 10
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 11
+      },
+      {
+        "Cost": 150,
+        "Owner": null,
+        "Type": 7,
+        "Name": "Electric Company",
+        "Position": 12
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 13
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 14
+      },
+      {
+        "Cost": 100,
+        "Owner": null,
+        "Type": 6,
+        "Name": "Train Station",
+        "Position": 15
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 16
+      },
+      {
+        "Type": 4,
+        "Name": "Community Chest",
+        "Position": 17
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 18
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 19
+      },
+      {
+        "Type": 5,
+        "Name": "Free Parking",
+        "Position": 20
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 21
+      },
+      {
+        "Type": 3,
+        "Name": "Chance Cards",
+        "Position": 22
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 23
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 24
+      },
+      {
+        "Cost": 100,
+        "Owner": null,
+        "Type": 6,
+        "Name": "Train Station",
+        "Position": 25
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 26
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 27
+      },
+      {
+        "Cost": 150,
+        "Owner": null,
+        "Type": 7,
+        "Name": "Water Works",
+        "Position": 28
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 29
+      },
+      {
+        "Type": 9,
+        "Name": "Go To Jail",
+        "Position": 30
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 31
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 32
+      },
+      {
+        "Type": 4,
+        "Name": "Community Chest",
+        "Position": 33
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 34
+      },
+      {
+        "Cost": 100,
+        "Owner": null,
+        "Type": 6,
+        "Name": "Train Station",
+        "Position": 35
+      },
+      {
+        "Type": 3,
+        "Name": "Chance Cards",
+        "Position": 36
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          50,
+          200,
+          600,
+          1400,
+          1700,
+          2000
+        ],
+        "Cost": 400,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 8 Land",
+        "Position": 37
+      },
+      {
+        "Type": 2,
+        "Name": "Luxury Tax",
+        "Position": 38
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          50,
+          200,
+          600,
+          1400,
+          1700,
+          2000
+        ],
+        "Cost": 400,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 8 Land",
+        "Position": 39
+      }
+    ],
+    "TotalTiles": 40,
+    "UnownedRealEstateTiles": [
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          4,
+          20,
+          60,
+          180,
+          320,
+          450
+        ],
+        "Cost": 60,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 1 Land",
+        "Position": 1
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          4,
+          20,
+          60,
+          180,
+          320,
+          450
+        ],
+        "Cost": 60,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 1 Land",
+        "Position": 3
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 6
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 8
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 50,
+        "RentLevels": [
+          8,
+          40,
+          100,
+          300,
+          450,
+          600
+        ],
+        "Cost": 120,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 2 Land",
+        "Position": 9
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 11
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 13
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          12,
+          60,
+          180,
+          500,
+          700,
+          900
+        ],
+        "Cost": 160,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 3 Land",
+        "Position": 14
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 16
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 18
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 100,
+        "RentLevels": [
+          16,
+          80,
+          220,
+          600,
+          800,
+          1000
+        ],
+        "Cost": 200,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 4 Land",
+        "Position": 19
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 21
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 23
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          20,
+          100,
+          300,
+          750,
+          925,
+          1100
+        ],
+        "Cost": 240,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 5 Land",
+        "Position": 24
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 26
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 27
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 150,
+        "RentLevels": [
+          24,
+          120,
+          360,
+          850,
+          1025,
+          1200
+        ],
+        "Cost": 280,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 6 Land",
+        "Position": 29
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 31
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 32
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          28,
+          150,
+          450,
+          1000,
+          1200,
+          1400
+        ],
+        "Cost": 320,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 7 Land",
+        "Position": 34
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          50,
+          200,
+          600,
+          1400,
+          1700,
+          2000
+        ],
+        "Cost": 400,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 8 Land",
+        "Position": 37
+      },
+      {
+        "HouseCount": 0,
+        "BuildCost": 200,
+        "RentLevels": [
+          50,
+          200,
+          600,
+          1400,
+          1700,
+          2000
+        ],
+        "Cost": 400,
+        "Owner": null,
+        "Type": 8,
+        "Name": "Tier 8 Land",
+        "Position": 39
+      }
+    ]
+  }
+}

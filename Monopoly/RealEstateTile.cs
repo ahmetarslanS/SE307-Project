@@ -65,8 +65,10 @@ namespace Monopoly
             {
                 if (Owner != player) 
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                     Console.WriteLine($"{Owner.Name} owns this land with {HouseCount} houses. Current rent : {CalculateRent()}");
                     player.PayMoney(CalculateRent(), Owner);
+                    Console.ResetColor();
                 }
                 else //owner is this player
                 {
@@ -88,10 +90,11 @@ namespace Monopoly
 
             while (choice != 1 && choice != 2)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"This land is currently ownerless. Do you want to buy this land for {Cost} ?");
                 Console.WriteLine("1. Buy");
                 Console.WriteLine("2. Skip");
-
+                Console.ResetColor();
                 string input = Console.ReadLine();
 
                 if (int.TryParse(input, out choice))
@@ -99,6 +102,7 @@ namespace Monopoly
                     switch (choice)
                     {
                         case 1:
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("You chose to buy this land.");
                             //check player money
                             if (player.Balance > this.Cost)
@@ -116,6 +120,7 @@ namespace Monopoly
                                 Console.WriteLine("Not enough money.");
                                 Console.ResetColor();
                             }
+                            Console.ResetColor();
                             break;
 
                         case 2:
@@ -144,10 +149,11 @@ namespace Monopoly
         {
             if (HouseCount < 5)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"You own this land. Do you want to build a house for {BuildCost}? You currently have {HouseCount} houses on this land.");
                 Console.WriteLine("1. Build a house");
                 Console.WriteLine("2. Skip");
-
+                Console.ResetColor();
                 int choice;
 
                 while (true)
@@ -159,10 +165,12 @@ namespace Monopoly
                         switch (choice)
                         {
                             case 1:
+                                Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("You chose to build a house.");
                                 player.PayMoney(BuildCost);
                                 HouseCount++;
                                 Console.WriteLine($"The rent of this land is {CalculateRent()} now.");
+                                Console.ResetColor();
                                 //get house building cost
 
 

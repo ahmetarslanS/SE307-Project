@@ -22,10 +22,11 @@ namespace Monopoly
             {
                 if (Owner != player)
                 {
-
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
                   //  Console.WriteLine($"Somebody else owns this utility. Current rent : {CalculateRent()}");
                     Console.WriteLine($"Player {Owner.Name} has this {Name}. Utilities owned: {Owner.UtilityBought}.");
                     player.PayMoney(CalculateRent(), Owner);
+                    Console.ResetColor();
                 }
                 else //owner is this player
                 {
@@ -41,6 +42,7 @@ namespace Monopoly
 
             while (choice != 1 && choice != 2)
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"This {Name} is currently ownerless. Do you want to buy this {Name} for {Cost} ?");
                 Console.WriteLine("1. Buy");
                 Console.WriteLine("2. Skip");
@@ -92,6 +94,7 @@ namespace Monopoly
                     Console.WriteLine("Invalid input. Please enter a valid number.");
                     Console.ResetColor();
                 }
+                Console.ResetColor();
             }
         }
 
