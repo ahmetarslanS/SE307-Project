@@ -1,0 +1,7 @@
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Release/Monopoly.exe.config
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Release/Monopoly.exe
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/bin/Release/Monopoly.pdb
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Release/Monopoly.csproj.AssemblyReference.cache
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Release/Monopoly.csproj.CoreCompileInputs.cache
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Release/Monopoly.exe
+/Users/ahmetarslan/Projects/SE307-Project/Monopoly/obj/Release/Monopoly.pdb

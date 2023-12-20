@@ -77,23 +77,55 @@ namespace Monopoly
 
             for (int i = 0; i < playerCount; i++)
             {
-                // players.Add(new Player($"Player {i + 1}"));
                 Console.WriteLine($"Enter {i + 1}. player name:");
                 string name = Console.ReadLine();
-                Player p = new Player(name);
-                players.Add(p);
+                ConsoleColor color = GetPlayerColor(i);
 
+                Player p = new Player(name, color);
+                players.Add(p);
             }
+
+            Console.WriteLine("Players in the game:");
             for (int i = 0; i < players.Count; i++)
             {
-                Console.WriteLine((i + 1) + ". Player: " + players[i].Name);
+                Console.WriteLine($"{i + 1}. Player: {players[i].Name}");
             }
-      
+
+            
+            DecideWhoStarts();
         }
 
-       public static void DecideWhoStarts()
+        private static ConsoleColor GetPlayerColor(int index)
         {
+            ConsoleColor[] playerColors = { ConsoleColor.Cyan, ConsoleColor.Green, ConsoleColor.Red, ConsoleColor.Yellow };
+            return playerColors[index % playerColors.Length];
+        }
 
+
+        public static void DecideWhoStarts()
+        {
+            Console.WriteLine("Rolling the dice to decide who starts...");
+
+            int maxRoll = 0;
+            Player startingPlayer = null;
+
+            foreach (Player player in players)
+            {
+                int roll = RollDice();
+
+                Console.WriteLine($"{player.Name} rolled {roll}");
+
+                if (roll > maxRoll || startingPlayer == null)
+                {
+                    maxRoll = roll;
+                    startingPlayer = player;
+                }
+            }
+
+            Console.WriteLine($"{startingPlayer.Name} starts the game!");
+            // Set the starting player to be the first in the list
+            players.Remove(startingPlayer);
+            players.Insert(0, startingPlayer);
         }
 
         private static void PlayerTurn(Player player)
@@ -103,8 +135,10 @@ namespace Monopoly
                 int diceRoll = 0;
                 //View of the board (Functional requirement 6) 
                 Console.WriteLine($"{player.Name}'s turn:");
+                board.DisplayBoardView();
                 while (true)
                 {
+                    Console.WriteLine(" ");
                     Console.WriteLine("1. Display properties and balances of all players"); //(Functional requirement 7) 
                     Console.WriteLine("2. Roll the dice");
                     Console.Write("Enter your choice (1 or 2): ");

@@ -128,6 +128,25 @@ namespace Monopoly
                 }
             }
 
+        
+
+        }
+        public void DisplayBoardView()
+        {
+            foreach (BoardTile tile in Tiles)
+            {
+                foreach (Player player in MonopolyGame.players)
+                {
+                    int tilePosition = Tiles.IndexOf(tile);
+                    if (player.Position == tilePosition)
+                    {
+                        Console.ForegroundColor = player.Color;
+                    }
+
+                }
+                tile.Display();
+                Console.ResetColor();
+            }
         }
     }
 }

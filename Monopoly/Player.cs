@@ -23,9 +23,10 @@ namespace Monopoly
         public bool InJail;
         public int turnSkipCount;
         public bool IsEliminated;
+        public ConsoleColor Color;
     
 
-        public Player(string name) //Start the game with 200 money and in first tile
+        public Player(string name, ConsoleColor color) //Start the game with 200 money and in first tile
         {
             Name = name;
             Balance = 200;
@@ -36,7 +37,9 @@ namespace Monopoly
             InJail = false;
             turnSkipCount = 0;
             IsEliminated = false;
+            Color = color;
         }
+        public ConsoleColor GetColor() { return Color; }
 
         public void ReceiveMoney(int amount, Board board = null)
         {

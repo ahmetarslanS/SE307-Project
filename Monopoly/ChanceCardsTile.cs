@@ -83,8 +83,7 @@ namespace Monopoly
                 case 6: 
                     Console.WriteLine("Go back 3 tiles.");
                     int newPos = player.Position - 3;
-                    int distance = newPos - player.Position;
-                    // alttaki method private olduğu için inaccesible, public veya internal yapabiliriz belki
+                    int distance = newPos - player.Position;                   
                     player.MovePlayer(distance);
                     currentTile = Board.Tiles[player.Position];
                     Console.WriteLine($"Landed on {currentTile.Name}");
@@ -99,7 +98,6 @@ namespace Monopoly
 
                 case 8:
                     Console.WriteLine("Pay each player 50Ꝟ.");
-                    // burda da yine players private olduğu için inaccesible
                     
                     foreach (Player otherPlayer in MonopolyGame.players)
                     {

@@ -1,16 +1,32 @@
 ﻿<Properties StartupConfiguration="{17987973-63CC-41F8-A9C9-FB8B06ED49B5}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Monopoly PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MonopolyGame.cs">
+    <Files>
+      <File FileName="Board.cs" Line="131" Column="9" />
+      <File FileName="MonopolyGame.cs" Line="147" Column="1" />
+      <File FileName="BoardTile.cs" Line="39" Column="10" />
+      <File FileName="CardTile.cs" Line="62" Column="9" />
+      <File FileName="Player.cs" Line="43" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State name="__root__" />
+        <State name="__root__">
+          <Node name="Monopoly">
+            <Node name="Monopoly" selected="True">
+              <Node name="Properties" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

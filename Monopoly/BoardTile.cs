@@ -33,38 +33,43 @@ namespace Monopoly
             Position = position;
         }
 
-        //// Subclasses can override this method to provide their own implementation.
-/*        protected virtual void InitializeCardPool() { }
-
-        protected void ShuffleCardPool()
+        public virtual void Display()
         {
-            Random random = new Random();
-            int n = CardPool.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = CardPool[k];
-                CardPool[k] = CardPool[n];
-                CardPool[n] = value;
-            }
+            Console.Write("[ " + Name + "]" + "==> ");   
         }
 
-        protected int DrawCard()
-        {
-            // Check if the card pool is depleted and shuffle if needed
-            if (CardPool.Count == 0)
-            {
-                Console.WriteLine($"{Type} Card pool is depleted. Reshuffling...");
-                InitializeCardPool();
-            }
+        //// Subclasses can override this method to provide their own implementation.
+        /*        protected virtual void InitializeCardPool() { }
 
-            // Draw a card and remove it from the pool
-            int drawnCard = CardPool[0];
-            CardPool.RemoveAt(0);
+                protected void ShuffleCardPool()
+                {
+                    Random random = new Random();
+                    int n = CardPool.Count;
+                    while (n > 1)
+                    {
+                        n--;
+                        int k = random.Next(n + 1);
+                        int value = CardPool[k];
+                        CardPool[k] = CardPool[n];
+                        CardPool[n] = value;
+                    }
+                }
 
-            return drawnCard;
-        } */
+                protected int DrawCard()
+                {
+                    // Check if the card pool is depleted and shuffle if needed
+                    if (CardPool.Count == 0)
+                    {
+                        Console.WriteLine($"{Type} Card pool is depleted. Reshuffling...");
+                        InitializeCardPool();
+                    }
+
+                    // Draw a card and remove it from the pool
+                    int drawnCard = CardPool[0];
+                    CardPool.RemoveAt(0);
+
+                    return drawnCard;
+                } */
 
         public abstract void PerformAction(Player player);
     }
