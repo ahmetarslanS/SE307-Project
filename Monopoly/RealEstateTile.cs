@@ -56,7 +56,7 @@ namespace Monopoly
             //if not take rent
             //if owned by same player ask if you want to build house
 
-            if (!IsOwned)
+            if (Owner==null)
             {
                 //want to buy?
                 PurchaseProperty(player);
@@ -65,7 +65,7 @@ namespace Monopoly
             {
                 if (Owner != player) 
                 {
-                    Console.WriteLine($"Somebody else owns this land with {HouseCount} houses. Current rent : {CalculateRent()}");
+                    Console.WriteLine($"{Owner.Name} owns this land with {HouseCount} houses. Current rent : {CalculateRent()}");
                     player.PayMoney(CalculateRent(), Owner);
                 }
                 else //owner is this player
@@ -101,13 +101,13 @@ namespace Monopoly
                         case 1:
                             Console.WriteLine("You chose to buy this land.");
                             //check player money
-                            if (player.Balance >= this.Cost)
+                            if (player.Balance > this.Cost)
                             {
                                 player.PayMoney(this.Cost);
                                 player.OwnedProperties.Add(this);
                                 Owner = player;
                                 Console.WriteLine($"{player.Name} bought {Name}.");
-                                IsOwned = true;
+                                //IsOwned = true;
                                 //unowned tilestan çıkarmam lazım bunu
                             }
                             else

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Monopoly
 {
@@ -12,14 +13,58 @@ namespace Monopoly
         {
             StartGame();
 
-            while (players.Count > 1) //there are at least 2 players still playing
+            /* while (players.Count > 1) //there are at least 2 players still playing
+             {
+                 foreach (Player player in players) //players get their turn in order
+                 {
+                     PlayerTurn(player);
+
+                 }
+             } */
+            while (players.Count > 1) // there are at least 2 players still playing
             {
-                foreach (Player player in players) //players get their turn in order
+                List<Player> playersToRemove = new List<Player>();
+
+                foreach (Player player in players.ToList()) 
                 {
                     PlayerTurn(player);
+             
+                    if (player.IsEliminated)
+                    {
+                        playersToRemove.Add(player);
+                        foreach(Property p in player.OwnedProperties)
+                        {
+                            p.Owner = null;
+                            if(p is RealEstateTile realEstate)
+                            {
+                                realEstate.HouseCount = 0;
+                            }
+                   //         p.IsOwned = false;
+                        }
+                        player.OwnedProperties.Clear();
+                        break;
+                    }
+                }
 
+             
+                foreach (Player playerToRemove in playersToRemove) //remove eliminated player after finishing the turn
+                {
+                    players.Remove(playerToRemove);
+                }
+
+                if (players.Count == 1)
+                {
+                    break; //exit if 1 player left only
                 }
             }
+
+            if (players.Count == 1)
+            {
+                Console.WriteLine($"Player {players[0].Name} won the game!");
+            }
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
 
 
         }
@@ -43,6 +88,12 @@ namespace Monopoly
             {
                 Console.WriteLine((i + 1) + ". Player: " + players[i].Name);
             }
+      
+        }
+
+       public static void DecideWhoStarts()
+        {
+
         }
 
         private static void PlayerTurn(Player player)
@@ -151,18 +202,25 @@ namespace Monopoly
                 Console.WriteLine($"Player {p.Name} has {p.Balance} money");
                 foreach (Property property in p.OwnedProperties)
                 {
-                    Console.Write($"Player {p.Name} has {property.Name} located in tile {property.Position}=> Cost: {property.Cost}, Rent: {property.CalculateRent()} ");
+                    Console.Write($"Player {p.Name} has {property.Name} located in tile {property.Position}=> Cost: {property.Cost}, Rent: ");
 
 
                     if (property is RealEstateTile realEstate)
                     {
+                        Console.Write($"{realEstate.CalculateRent()} ");
                         Console.WriteLine($"Houses built: {realEstate.HouseCount}");
                     }
 
                     else if (property is TrainStationTile trainStation)
                     {
+                        Console.Write($"{trainStation.CalculateRent()} ");
                         Console.WriteLine($"Stations owned: {p.StationsBought}");
                     }
+                    else if(property is UtilityTile utility)
+                    {
+                        Console.WriteLine($"Utilities owned: {p.UtilityBought}");
+                    }
+                   
                 }
             }
             Console.WriteLine();

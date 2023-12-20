@@ -11,7 +11,7 @@ namespace Monopoly
         
         public int Cost { get; }
         public Player Owner { get;  set; }
-        public bool IsOwned { get; set; }
+      //  public bool IsOwned { get; set; }
        // public int Rent { get; }
 
         public Property(TileType tileType, string name, int position, int cost)
@@ -19,7 +19,7 @@ namespace Monopoly
         {
             Cost = cost;
             Owner = null;
-            IsOwned = false;
+       //     IsOwned = false;
         //    Rent = CalculateRent();//??
         }
 

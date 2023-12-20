@@ -28,7 +28,7 @@ namespace Monopoly
             //if not take rent
             //if owned by same player ask if you want to build house
 
-            if (!IsOwned)
+            if (Owner == null)
             {
                 //want to buy?
                 PurchaseProperty(player);
@@ -73,7 +73,7 @@ namespace Monopoly
                         case 1:
                             Console.WriteLine("You chose to buy this station.");
                             //check player money
-                            if (player.Balance >= this.Cost)
+                            if (player.Balance > this.Cost)
                             {
                                 player.PayMoney(this.Cost);
                                 player.OwnedProperties.Add(this);
@@ -82,7 +82,7 @@ namespace Monopoly
                                 // StationCount++;
                                 player.StationsBought++;
                                 Console.WriteLine("Stations have: " + player.StationsBought);
-                                IsOwned = true;
+                              //  IsOwned = true;
                                 //unowned tilestan çıkarmam lazım bunu
                             }
                             else

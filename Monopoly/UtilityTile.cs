@@ -13,7 +13,7 @@ namespace Monopoly
         }
         public override void PerformAction(Player player)
         {
-            if (!IsOwned)
+            if (Owner == null)
             {
                 //want to buy?
                 PurchaseProperty(player);
@@ -54,7 +54,7 @@ namespace Monopoly
                         case 1:
                             Console.WriteLine($"You chose to buy this {Name}.");
                             //check player money
-                            if (player.Balance >= this.Cost)
+                            if (player.Balance > this.Cost)
                             {
                                 player.PayMoney(this.Cost);
                                 player.OwnedProperties.Add(this);
@@ -62,7 +62,7 @@ namespace Monopoly
                                 Console.WriteLine($"{player.Name} bought {Name}.");
                                 player.UtilityBought++;
                                 Console.WriteLine("Utilities have: " + player.UtilityBought);
-                                IsOwned = true;
+                      //          IsOwned = true;
                                 //unowned tilestan çıkarmam lazım bunu
                             }
                             else

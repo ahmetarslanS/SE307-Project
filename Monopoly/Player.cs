@@ -22,6 +22,8 @@ namespace Monopoly
         public bool hasJailCard { get; set; }
         public bool InJail;
         public int turnSkipCount;
+        public bool IsEliminated;
+    
 
         public Player(string name) //Start the game with 200 money and in first tile
         {
@@ -33,6 +35,7 @@ namespace Monopoly
             hasJailCard = false;
             InJail = false;
             turnSkipCount = 0;
+            IsEliminated = false;
         }
 
         public void ReceiveMoney(int amount, Board board = null)
@@ -47,24 +50,52 @@ namespace Monopoly
 
         public void PayMoney(int amount, Player receiver = null, Board board = null)
         {
-            Balance -= amount;
+            if(Balance > amount)
+            {
+                Balance -= amount;
 
-            if (receiver != null)
-            {
-                receiver.ReceiveMoney(amount);
-                Console.WriteLine($"{Name} paid {amount} to {receiver.Name}. {Name}'s new balance: {Balance}");
-            }
-            else if (board != null)
-            {
-                Board.BoardBalance += amount;
-                Console.WriteLine($"{Name} paid {amount} to the board. {Name}'s new balance: {Balance}. Board's new balance: {Board.BoardBalance}");
+                if (receiver != null)
+                {
+                    receiver.ReceiveMoney(amount);
+                    Console.WriteLine($"{Name} paid {amount} to {receiver.Name}. {Name}'s new balance: {Balance}");
+                }
+                else if (board != null)
+                {
+                    Board.BoardBalance += amount;
+                    Console.WriteLine($"{Name} paid {amount} to the board. {Name}'s new balance: {Balance}. Board's new balance: {Board.BoardBalance}");
+                }
+                else
+                {
+                    Console.WriteLine($"{Name} paid {amount}. {Name}'s new balance: {Balance}");
+                }
+
             }
             else
             {
-                Console.WriteLine($"{Name} paid {amount}. {Name}'s new balance: {Balance}");
+                if (receiver != null)
+                {
+                    receiver.ReceiveMoney(Balance); //give all the money left                 
+                    Console.WriteLine($"{Name} paid {Balance} to {receiver.Name}. {Name}'s new balance: 0");
+                    Balance -= Balance;
+                }
+                else if(board != null)
+                {
+                    Board.BoardBalance += Balance;             
+                    Console.WriteLine($"{Name} paid {Balance} to the board. {Name}'s new balance: 0. Board's new balance: {Board.BoardBalance}");
+                    Balance -= Balance;
+                }
+              /*  else
+                {
+                    Console.WriteLine($"{Name} paid {Balance}. {Name}'s new balance: 0");
+                    Balance -= Balance;
+                } */
+
+                Console.WriteLine($"Player {Name} is eliminated.");
+                //   MonopolyGame.players.Remove(this);
+                IsEliminated = true;
             }
 
-            CheckIfLost(); //kaybedince de para ödüyor şuan
+          //  CheckIfLost(); //kaybedince de para ödüyor şuan
         }
 
 
@@ -172,5 +203,7 @@ namespace Monopoly
                 //return property to system
             }
         }
+
+       
     }
 }
